@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    @apply bg-surface text-white font-body antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(233,69,96,0.08), transparent);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 { @apply font-display; }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-xl
+           transition-all duration-200 shadow-glow hover:shadow-lg active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-surface-border hover:bg-white/10 text-white font-medium px-6 py-3 rounded-xl
+           transition-all duration-200 border border-white/10;
+  }
+
+  .btn-danger {
+    @apply bg-accent/10 hover:bg-accent/20 text-accent font-semibold px-6 py-3 rounded-xl
+           transition-all duration-200 border border-accent/30;
+  }
+
+  .input-field {
+    @apply w-full bg-white/5 border border-surface-border rounded-xl px-4 py-3 text-white
+           placeholder-white/30 focus:outline-none focus:border-brand-500 focus:ring-1
+           focus:ring-brand-500 transition-all duration-200 font-body;
+  }
+
+  .badge-present {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold
+           bg-emerald-500/15 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-absent {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold
+           bg-red-500/15 text-red-400 border border-red-500/20;
+  }
+
+  .badge-eligible {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold
+           bg-emerald-500/15 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-ineligible {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold
+           bg-accent/15 text-accent border border-accent/20;
+  }
+
+  .stat-card {
+    @apply card p-6 flex flex-col gap-2 hover:border-brand-500/40 transition-colors duration-200;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-white/60 hover:text-white
+           hover:bg-white/5 transition-all duration-200 font-medium cursor-pointer;
+  }
+
+  .sidebar-link.active {
+    @apply text-white bg-brand-600/20 border border-brand-500/30;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-500 to-accent bg-clip-text text-transparent;
+  }
+
+  .glow-dot {
+    @apply w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_2px_rgba(52,211,153,0.5)];
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.4s ease both; }
+.fade-up-delay-1 { animation: fadeUp 0.4s ease 0.1s both; }
+.fade-up-delay-2 { animation: fadeUp 0.4s ease 0.2s both; }
+.fade-up-delay-3 { animation: fadeUp 0.4s ease 0.3s both; }
+
+/* Pulse ring for face scanner */
+@keyframes pulseRing {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.pulse-ring {
+  animation: pulseRing 1.5s ease-out infinite;
+}
