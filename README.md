@@ -154,11 +154,6 @@ At attendance time:
 
 ---
 
-## Screenshots
-
-> Add screenshots here — Admin dashboard, student face registration, and attendance marking screen.
-
----
 
 ## Future Improvements
 
